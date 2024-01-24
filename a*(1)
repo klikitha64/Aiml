@@ -1,0 +1,20 @@
+h={'A':10,'B':23,'C':12,'D':56,'E':34}
+source=['A','A','B','C','D','E','C','B']
+dest=['B','C','D','E','A','A','B','D']
+cost=[10,20,29,45,23,36,46,89]
+def A(start,stop):
+    if start==stop:
+        return
+    else:
+        src_ind=[]
+        cost_hue_sum=[]
+        for j in range(len(source)):
+            if start==source[j]:
+                src_ind.append(j)
+        for i in src_ind:
+            cost_hue_sum.append(cost[i]+h[dest[i]])
+        print(start)
+        print('->')
+        A(dest[src_ind[cost_hue_sum.index(min(cost_hue_sum))]],stop)
+A('A','B')
+print('B')
