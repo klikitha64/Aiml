@@ -1,0 +1,50 @@
+def c():
+    if ['o','o','o'] in a:
+        return 'o'
+    if ['x','x','x'] in a:
+        return 'x'
+    if a[0][0]==a[1][1]==a[2][2]=='o':
+        return 'o'
+    if a[0][0]==a[1][1]==a[2][2]=='x':
+        return 'x'
+    if a[0][2]==a[1][1]==a[2][0]=='o':
+        return 'o'
+    if a[0][2]==a[1][1]==a[2][0]=='x':
+        return 'x'
+    j=0
+    for i in range(3):
+        if a[0][j]==a[1][j]==a[2][j]=='o':
+            return 'o'
+        elif a[0][j]==a[1][j]==a[2][j]=='x':
+            return 'x'
+        else:
+            j+=1
+    return None
+a=[]
+a.append(['.','.','.'])
+a.append(['.','.','.'])
+a.append(['.','.','.'])
+print(a)
+b=None
+k=0
+while(b!='o' and b!='x'):
+    if '.' in a[0] or '.' in a[1] or '.' in a[2]:
+        if k%2==0:
+            k=k+1
+            print('o give the index')
+            i=int(input())
+            j=int(input())
+            a[i][j]='o'
+            b=c()
+        else:
+            k=k+1
+            print('x give the index')
+            i=int(input())
+            j=int(input())
+            a[i][j]='x'
+            b=c()
+    else:
+        print('game is tied')
+for _ in range(3):
+    print(a[_])
+print(b, ' is the winner')
